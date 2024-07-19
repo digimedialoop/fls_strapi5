@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projecttimes",
+  "info": {
+    "singularName": "projecttime",
+    "pluralName": "projecttimes",
+    "displayName": "projecttimes",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
+    },
+    "projecttask": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::projecttask.projecttask",
+      "inversedBy": "projecttimes"
+    },
+    "chargeable": {
+      "type": "boolean",
+      "default": true
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

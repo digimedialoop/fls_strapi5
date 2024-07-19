@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "offers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "offers"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "offers"
+    },
+    "offerdate": {
+      "type": "date"
+    },
+    "offernumber": {
+      "type": "string"
+    },
+    "offerstatus": {
+      "type": "string"
+    },
+    "hourlyrate": {
+      "type": "decimal",
+      "default": 0
+    },
+    "offerpositions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offerposition.offerposition",
+      "mappedBy": "offer"
+    },
+    "currency": {
+      "type": "string",
+      "maxLength": 10,
+      "default": "EUR"
+    },
+    "tax": {
+      "type": "decimal",
+      "default": 19
+    },
+    "pretext": {
+      "type": "blocks"
+    },
+    "posttext": {
+      "type": "blocks"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "offer"
+    }
+  }
+}

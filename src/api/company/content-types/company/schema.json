@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "singularName": "company",
+    "pluralName": "companies",
+    "displayName": "companies",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company": {
+      "type": "string"
+    },
+    "company2": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "postalcode": {
+      "type": "string",
+      "maxLength": 10
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
+    },
+    "companycolor": {
+      "type": "string",
+      "maxLength": 7
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::contact.contact",
+      "mappedBy": "companies"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer.offer",
+      "mappedBy": "company"
+    },
+    "lead": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

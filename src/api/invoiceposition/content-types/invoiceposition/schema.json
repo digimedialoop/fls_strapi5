@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoicepositions",
+  "info": {
+    "singularName": "invoiceposition",
+    "pluralName": "invoicepositions",
+    "displayName": "invoicepositions"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offerpositions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::offerposition.offerposition",
+      "inversedBy": "invoicepositions"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "invoicepositions"
+    },
+    "quantity": {
+      "type": "decimal",
+      "default": 1
+    },
+    "unit": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal",
+      "default": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

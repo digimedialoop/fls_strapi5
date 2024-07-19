@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offerpositions",
+  "info": {
+    "singularName": "offerposition",
+    "pluralName": "offerpositions",
+    "displayName": "offerpositions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "offer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::offer.offer",
+      "inversedBy": "offerpositions"
+    },
+    "projecttasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::projecttask.projecttask",
+      "mappedBy": "offerposition"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "default": 1
+    },
+    "unit": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "invoicepositions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::invoiceposition.invoiceposition",
+      "mappedBy": "offerpositions"
+    }
+  }
+}
